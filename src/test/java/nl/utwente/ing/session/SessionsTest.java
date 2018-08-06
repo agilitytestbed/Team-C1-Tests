@@ -2,6 +2,7 @@ package nl.utwente.ing.session;
 
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
+import nl.utwente.ing.Utils;
 import org.junit.Test;
 
 import static io.restassured.RestAssured.given;
@@ -10,8 +11,6 @@ import static io.restassured.module.jsv.JsonSchemaValidator.matchesJsonSchemaInC
 import static org.junit.Assert.fail;
 
 public class SessionsTest {
-
-    private static final String BASE_URL = "/api/v1";
 
     private static final String[][] securedEndpoints = new String[][] {
             {"get,post", "/transactions"}, {"get,put,delete", "/transactions/{transactionid}"},
@@ -22,7 +21,7 @@ public class SessionsTest {
     @Test
     public void getSession() {
         when().
-                post(BASE_URL + "/sessions").
+                post(Utils.BASE_URL + "/sessions").
         then().assertThat().
                 statusCode(201).
                 contentType("application/json").
@@ -49,19 +48,19 @@ public class SessionsTest {
                 Response endpointResponse;
                 switch (method) {
                     case "get":
-                        endpointResponse = specification.get(BASE_URL + url);
+                        endpointResponse = specification.get(Utils.BASE_URL + url);
                         break;
                     case "post":
-                        endpointResponse = specification.post(BASE_URL + url);
+                        endpointResponse = specification.post(Utils.BASE_URL + url);
                         break;
                     case "put":
-                        endpointResponse = specification.put(BASE_URL + url);
+                        endpointResponse = specification.put(Utils.BASE_URL + url);
                         break;
                     case "patch":
-                        endpointResponse = specification.patch(BASE_URL + url);
+                        endpointResponse = specification.patch(Utils.BASE_URL + url);
                         break;
                     case "delete":
-                        endpointResponse = specification.delete(BASE_URL + url);
+                        endpointResponse = specification.delete(Utils.BASE_URL + url);
                         break;
                     default:
                         return;
