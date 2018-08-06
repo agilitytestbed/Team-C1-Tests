@@ -324,7 +324,7 @@ public class TransactionsTest {
                         extract().path("id");
         // assign new category to first transaction
         JSONObject assignBody = new JSONObject()
-                .put("category_id", category_id);
+                .put("id", category_id);
         given().
                 header(Utils.X_SESSION_ID_HEADER, session_id).
                 contentType(Utils.APPLICATION_JSON_VALUE).
@@ -386,7 +386,7 @@ public class TransactionsTest {
             // assign category
             String assign_category_url = Utils.BASE_URL + Utils.TRANSACTIONS_PATH + "/" + transaction_id + "/" + "category";
             JSONObject assignBody = new JSONObject()
-                    .put("category_id", categoryIds.get(i % 2));
+                    .put("id", categoryIds.get(i % 2));
             given()
                     .header(Utils.X_SESSION_ID_HEADER, session_id)
                     .contentType(Utils.APPLICATION_JSON_VALUE)
