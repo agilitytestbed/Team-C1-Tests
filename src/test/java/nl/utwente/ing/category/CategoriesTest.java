@@ -14,13 +14,12 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotEquals;
 
 public class CategoriesTest {
+
     private static final String ID_NAME = "id";
     private static final String SOME_ID_VALUE = "0";
     private static final String CATEGORY_NAME_NAME = "name";
     private static final String GROCERIES_CATEGORY_NAME_VALUE = "Groceries";
     private static final String TOILETRIES_CATEGORY_NAME_VALUE = "Toiletries";
-
-
     private static final String CATEGORY_JSON_SCHEMA_PATH = "category-response.json";
 
     /*
